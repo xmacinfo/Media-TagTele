@@ -1,0 +1,6 @@
+;$Id:$
+name = Media: TagTélé
+description = Embedded Audio Field provider file for tagtele.com.
+core = 6.x
+dependencies[] = emvideo
+package = Media
