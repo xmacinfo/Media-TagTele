@@ -1,6 +1,10 @@
 ;$Id:$
 name = Media: TagTélé
 description = Embedded Audio Field provider file for tagtele.com.
+
+version = "6.x-1.0"
 core = 6.x
 dependencies[] = emvideo
+project = media_tagtele
+
 package = Media

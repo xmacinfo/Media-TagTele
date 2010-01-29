@@ -81,14 +81,6 @@ function emvideo_tagtele_settings() {
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );
-  // This is an option to set the video to full screen. You should remove this
-  // option if it is not provided by the tagtele provider.
-  $form['tagtele']['player_options']['emvideo_tagtele_full_screen'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Allow fullscreen'),
-    '#default_value' => variable_get('emvideo_tagtele_full_screen', 1),
-    '#description' => t('Allow users to view video using the entire computer screen.'),
-  );
 
   return $form;
 }
@@ -114,7 +106,7 @@ function emvideo_tagtele_settings() {
  */
 function emvideo_tagtele_extract($parse = '') {
   return array(
-   '@tagtele\.com/v/([^"\&]+)@i',
+   '@tagtele\.com/videos/voir/([^"\&]+)@i',
   );
 }
 
@@ -129,7 +121,7 @@ function emvideo_tagtele_extract($parse = '') {
  */
 function emvideo_tagtele_embedded_link($video_code) {
   $url_id = substr($video_code, 0, 8);
-  return 'http://www.tagtele.com/videos/voir/'. $url_id;
+  return 'http://www.tagtele.com/v/'. $url_id;
 }
 
 /**
@@ -138,16 +130,10 @@ function emvideo_tagtele_embedded_link($video_code) {
 function theme_emvideo_tagtele_flash($item, $width, $height, $autoplay) {
   $output = '';
   if ($item['embed']) {
-    $autoplay = $autoplay ? 'true' : 'false';
-    $fullscreen = variable_get('emvideo_tagtele_full_screen', 1) ? 'true' : 'false';
     $output = '<object width="'. $width .'" height="'. $height .'">';
     $output .= '<param name="movie" value="http://www.tagtele.com/v/'. $item['value'] .'">';
-    $output .= '<param name="quality" value="best" />';
     $output .= '<param name="wmode" value="transparent" />';
-    $output .= '<param name="allowFullScreen" value="'. $fullscreen .'" />';
-    $output .= '<param name="scale" value="showAll" />';
-    $output .= '<param name="FlashVars" value="autoplay='. $autoplay .'" />';
-    $output .= '<embed src="http://www.tagtele.com/v/'. $item['value'] .'" type="application/x-shockwave-flash" allowFullScreen="'. $fullscreen .'"  width="'. $width .'" height="'. $height .'"></embed>';
+    $output .= '<embed src="http://www.tagtele.com/v/'. $item['value'] .'" type="application/x-shockwave-flash" wmode="transparent"  width="'. $width .'" height="'. $height .'"></embed>';
     $output .= '</object>';
   }
   return $output;
