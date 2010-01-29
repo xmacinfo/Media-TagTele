@@ -1,6 +1,8 @@
 <?php
-// $Id: tagtele.inc,v 1.1.2.2 2009/05/10 05:42:58 junedkazi Exp $
+// $Id$
+
 // TagTélé feature has been created by xmacinfo(http://drupal.org/user/12131)
+
 /**
  * @file
  *  This is a tagtele provider include file for Embedded Media Video.
