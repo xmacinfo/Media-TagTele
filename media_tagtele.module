@@ -1,0 +1,13 @@
+<?php
+// $Id$
+
+/**
+ *  @file
+ *  Embedded Video Field provider file for tagtele.com.
+ */
+
+function media_tagtele_emfield_providers($module, $provider = NULL) {
+  if ($module == 'emvideo') {
+    return drupal_system_listing("$provider\.inc$", drupal_get_path('module', 'media_tagtele') ."/providers", 'name', 0);
+  }
+}
