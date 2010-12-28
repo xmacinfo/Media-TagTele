@@ -1,0 +1,76 @@
+# $Id$
+#
+# French translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  media_tagtele.info,v 1.1 2010/04/21 04:22:01 xmacinfo
+#  tagtele.inc,v 1.1 2010/04/21 04:22:01 xmacinfo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-12-07 19:00-0500\n"
+"PO-Revision-Date: 2010-12-07 19:22-0500\n"
+"Last-Translator: Jacques R. Blier <jrblier@xmacinfo.com>\n"
+"Language-Team: French <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+#: media_tagtele.info:0
+msgid "Media: TagTélé"
+msgstr "Media: TagTélé"
+
+#: media_tagtele.info:0
+msgid "Embedded Audio Field provider file for tagtele.com."
+msgstr "Fichier champs audio incorporé fournisseur pour tagtele.com."
+
+#: media_tagtele.info:0
+msgid "Media"
+msgstr "Média"
+
+#: providers/tagtele.inc:54
+msgid "Autoplay"
+msgstr "Démarrage automatique"
+
+#: providers/tagtele.inc:54
+msgid "Yes"
+msgstr "Oui"
+
+#: providers/tagtele.inc:54
+msgid "Not completed. When using a URL you can manually add “1/” after the last slash to load the autoplay version from the provider."
+msgstr "Pas terminé. Lorsque vous utilisez une URL, vous pouvez ajouter manuellement un « 1/ » après la dernière barre oblique pour charger la version démarrage automatique du fournisseur."
+
+#: providers/tagtele.inc:55
+msgid "Full screen mode"
+msgstr "Mode plein écran"
+
+#: providers/tagtele.inc:55;56
+msgid "No"
+msgstr "Non"
+
+#: providers/tagtele.inc:55
+msgid "Not available yet from the provider."
+msgstr "Pas encore disponible chez le fournisseur."
+
+#: providers/tagtele.inc:56
+msgid "Thumbnails"
+msgstr "Vignettes"
+
+#: providers/tagtele.inc:56
+msgid "Feature not completed."
+msgstr "Fonctionnalité pas complétée."
+
+#: providers/tagtele.inc:60
+msgid "TagTélé"
+msgstr "TagTélé"
+
+#: providers/tagtele.inc:62
+msgid "These settings specifically affect videos displayed from !tagtele."
+msgstr "Ces paramètres affectent spécifiquement les vidéos affichées à partir de !tagtele."
+
+#: providers/tagtele.inc:62
+msgid "TagTélé.com"
+msgstr "TagTélé.com"
+
