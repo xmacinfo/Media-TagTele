@@ -1,8 +1,13 @@
+$Id: README.txt,v 1.1 2010/04/21 04:22:01 xmacinfo Exp $
+
 Media: TagTélé
 
-This adds support for the TagTélé video sharing service, available at http://www.tagtele.com/
+This adds support for the French TagTélé video sharing service, available at
+http://www.tagtele.com/
 
 To use this module, you'll first need to install Embedded Video Field, which is
 packaged with Embedded Media Field (from http://drupal.org/project/emfield).
 
-Set up a content type to use a Third Party Video field as you normally would with emfield. Also ensure that you have enabled the new TagTélé provider from the Admin screen at /admin/content/emfield.
+Set up a content type to use a Third Party Video field as you normally would 
+with emfield. Also ensure that you have enabled the new TagTélé provider from 
+the Admin screen at /admin/content/emfield.

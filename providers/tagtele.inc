@@ -1,7 +1,5 @@
 <?php
-// $Id$
-
-// TagTélé feature has been created by xmacinfo(http://drupal.org/user/12131)
+// $Id: tagtele.inc,v 1.1 2010/04/21 04:22:01 xmacinfo Exp $
 
 /**
  * @file
@@ -53,7 +51,9 @@ define('EMVIDEO_TAGTELE_DATA_VERSION', 1);
  */
 function emvideo_tagtele_info() {
   $features = array(
-    array(t('Full screen mode'), t('Yes'), t('You may customize the player to enable or disable full screen playback. Full screen mode is enabled by default.')),
+    array(t('Autoplay'), t('Yes'), t('Not completed. When using a URL you can manually add “1/” after the last slash to load the autoplay version from the provider.')),
+    array(t('Full screen mode'), t('No'), t('Not available yet from the provider.')),
+    array(t('Thumbnails'), t('No'), t('Feature not completed.')),
   );
   return array(
     'provider' => 'tagtele',
@@ -73,27 +73,27 @@ function emvideo_tagtele_info() {
  *  so if you want specific provider settings within that field set, you should
  *  add the elements to that form array element.
  */
-function emvideo_tagtele_settings() {
+//function emvideo_tagtele_settings() {
   // We'll add a field set of player options here. You may add other options
   // to this element, or remove the field set entirely if there are no
   // user-configurable options allowed by the tagtele provider.
-  $form['tagtele']['player_options'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Embedded video player options'),
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,
-  );
+  //$form['tagtele']['player_options'] = array(
+  //  '#type' => 'fieldset',
+  //  '#title' => t('Embedded video player options'),
+  //  '#collapsible' => TRUE,
+  //  '#collapsed' => TRUE,
+  //);
   // This is an option to set the video to full screen. You should remove this
   // option if it is not provided by the tagtele provider.
-  $form['tagtele']['player_options']['emvideo_tagtele_full_screen'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Allow fullscreen'),
-    '#default_value' => variable_get('emvideo_tagtele_full_screen', 1),
-    '#description' => t('Allow users to view video using the entire computer screen.'),
-  );
+  //$form['tagtele']['player_options']['emvideo_tagtele_full_screen'] = array(
+  //  '#type' => 'checkbox',
+  //  '#title' => t('Allow fullscreen'),
+  //  '#default_value' => variable_get('emvideo_tagtele_full_screen', 1),
+  //  '#description' => t('Allow users to view video using the entire computer screen.'),
+  //);
 
-  return $form;
-}
+  //return $form;
+//}
 
 /**
  *  hook emvideo_PROVIDER_extract
@@ -116,10 +116,9 @@ function emvideo_tagtele_settings() {
  */
 function emvideo_tagtele_extract($parse = '') {
   return array(
-   '@tagtele\.com/videos/voir/([^"\&]+)@i',
+    '@tagtele\.com/videos/voir/([^"\&]+)@i',
   );
 }
-
 
 /**
  * hook emvideo_PROVIDER_embedded_link($video_code)
@@ -154,7 +153,6 @@ function theme_emvideo_tagtele_flash($item, $width, $height, $autoplay) {
   }
   return $output;
 }
-
 
 /**
  *  hook emvideo_PROVIDER_video
@@ -214,4 +212,19 @@ function emvideo_tagtele_emfield_subtheme() {
         )
     );
     return $themes;
+}
+
+/**
+ * hook emvideo_PROVIDER_thumbnail
+ * returns the external url for a thumbnail of a specific video
+ * TODO: make the args: ($embed, $field, $item), with $field/$item provided if we need it, but otherwise simplifying things
+ *  @param $field
+ *    the field of the requesting node
+ *  @param $item
+ *    the actual content of the field from the requesting node
+ *  @return
+ *    a URL pointing to the thumbnail
+ */
+function emvideo_tagtele_thumbnail($field, $item, $formatter, $node, $width, $height, $options = array()) {
+  return "http://s1.ttimg.com/img/videos/thumbs192x108/{$item['value']}_default.jpg";
 }
