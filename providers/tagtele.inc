@@ -1,5 +1,4 @@
 <?php
-// $Id: tagtele.inc,v 1.1 2010/04/21 04:22:01 xmacinfo Exp $
 
 /**
  * @file
