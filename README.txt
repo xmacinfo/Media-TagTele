@@ -1,5 +1,4 @@
 
-
 Media: TagTélé
 
 This adds support for the French TagTélé video sharing service, available at
