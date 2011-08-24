@@ -1,10 +1,26 @@
 <?php
 
 /**
- *  @file
- *  Embedded Video Field provider file for tagtele.com.
+ * Embedded Video Field provider file for tagtele.com.
+ * @file
  */
 
+/*
+ * Implementation of hook_help().
+ */
+
+function media_tagtele_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#media_tagtele':
+      $output = '<p>'. t('This module adds <a href="@tagteleurl">TagTélé</a> as new provider to the <a href="@emfieldurl">Embedded Media Field</a> module.', array('@tagteleurl' => url('http://www.tagtele.com'), '@emfieldurl' => url('http://drupal.org/project/emfield/'))) .'</p>';
+      $output .= '<p>'. t('To force autoplay, add a “/1” at the end of the URL that you paste or modify the embed code to add the “/1” to the end of url in object param “value” and “embed” src attributes.') .'</p>';
+      return $output;
+  }
+}
+
+/**
+ * Loads the TagTélé provider file().
+ */
 function media_tagtele_emfield_providers($module, $provider = NULL) {
   if ($module == 'emvideo') {
     return drupal_system_listing("$provider\.inc$", drupal_get_path('module', 'media_tagtele') ."/providers", 'name', 0);
